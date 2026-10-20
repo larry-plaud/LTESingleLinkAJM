@@ -89,7 +89,7 @@
 | 设备 | 型号 | 连接方式 | 默认地址 | 说明 |
 |---|---|---|---|---|
 | 综测仪 | R&S CMW500（固件 V3.7.170） | VISA / GPIB | `GPIB0::20::0::INSTR` | LTE Signaling，施加干扰、建链、RRC 监护 |
-| 示波器 | RIGOL MHO5104（固件 00.02.00） | raw TCP Socket | `192.168.1.10:5025` | 采集单线总线 TX/RX 波形；LXI 标准 SCPI 端口，不走 VXI-11 |
+| 示波器 | RIGOL MHO5104（固件 00.02.00） | raw TCP Socket | `192.0.2.10:5025` | 采集单线总线 TX/RX 波形；LXI 标准 SCPI 端口，不走 VXI-11 |
 | SIM 模拟 | SIM Simulator | USB CDC 串口 | 自动识别，230400 8N1 | RRC 长时 IDLE 时发 AT 复位序列唤醒 DUT |
 
 > 地址在 `MainViewModel` 的无参构造中给出默认值，可按需修改后重新构建。
@@ -138,7 +138,7 @@ LTESingleLinkAJM/
 - **NI-VISA Runtime**：CMW500 通过 `NationalInstruments.Visa` 直接 P/Invoke `visa32.dll`，
   目标机必须安装 NI-VISA runtime（不依赖 IVI 的 vendor-discovery）
 - **GPIB 适配器**：如 NI GPIB-USB-HS（连接 CMW500）
-- **网络**：与示波器同网段，可访问 `192.168.1.10:5025`
+- **网络**：与示波器同网段，可访问 `192.0.2.10:5025`
 - **NuGet 依赖**（随构建自动还原）：
   - `NationalInstruments.Visa` 25.5.0.13
   - `System.IO.Ports` 9.0.0
